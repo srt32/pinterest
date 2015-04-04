@@ -39,9 +39,11 @@ group :development, :test do
   gem "byebug"
   gem "dotenv-rails"
   gem "factory_girl_rails"
+  gem "phantomjs"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.1.0"
   gem "selenium-webdriver"
+  gem "teaspoon"
 end
 
 group :test do

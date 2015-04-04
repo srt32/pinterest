@@ -14,12 +14,13 @@
 //= require jquery_ujs
 //= require angular/angular
 //= require angular-route/angular-route
+//= require angular-resource/angular-resource
 //= require angular-rails-templates
 //= require_tree .
 
-
 pinterest = angular.module("pinterest", [
   "templates",
+  "ngResource",
   "ngRoute",
   "controllers"
 ]);
@@ -35,13 +36,14 @@ pinterest.config(["$routeProvider", function($routeProvider) {
 controllers = angular.module("controllers", []);
 
 // TODO: move me to another file
-controllers.controller("ProductsController", ["$scope", function($scope) {
-  $scope.products = products;
-}]);
+controllers.controller("ProductsController", [
+  "$resource",
+  "$scope",
+  function($resource, $scope) {
+    Product = $resource("/v1/products"); // TODO: extract
 
-// TODO: move to server
-products = [
-  { id: 1, blurb: "blurb 1", details_url: "", title: "Prod 1", thumbnail_url: "" },
-  { id: 2, blurb: "blurb 2", details_url: "", title: "Prod 2", thumbnail_url: "" },
-  { id: 3, blurb: "blurb 3", details_url: "", title: "Prod 3", thumbnail_url: "" },
-];
+    Product.query({}, function(products) {
+      $scope.products = products;
+    });
+  }
+]);
