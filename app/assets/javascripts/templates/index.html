@@ -3,5 +3,10 @@
 <ul class="products">
   <li ng-repeat="product in products">
     {{product.title}}
+    By {{product.author}}
+    {{product.blurb}}
+    <a ng-href="{{product.details_url}}">More info</a>
+    <img ng-src="{{product.thumbnail_url}}" width=40/>
   </li>
+  <hr>
 </ul>
