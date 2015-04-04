@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root "home#index" # TODO: write spec
+  root "home#index"
 end
