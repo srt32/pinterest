@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby "2.2.0"
 
 gem "airbrake"
+gem "angular-rails-templates"
 gem "bourbon", "~> 4.2.0"
 gem "bower-rails"
 gem "coffee-rails", "~> 4.1.0"

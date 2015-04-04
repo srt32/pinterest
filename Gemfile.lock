@@ -40,6 +40,10 @@ GEM
     airbrake (4.1.0)
       builder
       multi_json
+    angular-rails-templates (0.1.4)
+      railties (>= 3.1)
+      sprockets
+      tilt
     arel (6.0.0)
     awesome_print (1.6.1)
     binding_of_caller (0.7.2)
@@ -270,6 +274,7 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake
+  angular-rails-templates
   awesome_print
   bourbon (~> 4.2.0)
   bower-rails
