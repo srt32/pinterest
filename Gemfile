@@ -4,6 +4,7 @@ ruby "2.2.0"
 
 gem "airbrake"
 gem "bourbon", "~> 4.2.0"
+gem "bower-rails"
 gem "coffee-rails", "~> 4.1.0"
 gem "delayed_job_active_record"
 gem "email_validator"
@@ -39,6 +40,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.1.0"
+  gem "selenium-webdriver"
 end
 
 group :test do
