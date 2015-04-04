@@ -18,6 +18,8 @@ module Pinterest
   class Application < Rails::Application
     config.i18n.enforce_available_locales = true
 
+    config.assets.path << Rails.root.join("vendor", "assets", "bower_components")
+
     config.generators do |generate|
       generate.helper false
       generate.javascript_engine false
