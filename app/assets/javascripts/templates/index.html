@@ -2,10 +2,10 @@
 
 <ul class="products" infinite-scroll="loadNewProducts()">
   <li ng-repeat="product in products">
-    {{product.title}}
-    By {{product.author}}
-    {{product.blurb}}
-    <a ng-href="{{product.details_url}}">More info</a>
+    <span class="title">{{product.title}}</span>
+    <span class="author">By {{product.author}}</span>
+    <span class="blurb">{{product.blurb | words:32}}</span>
+    <a ng-href="{{product.details_url}}">Read more</a>
     <img ng-src="{{product.thumbnail_url}}" width=40/>
     <hr>
   </li>

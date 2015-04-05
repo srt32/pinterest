@@ -4,6 +4,7 @@
     "angular": "latest",
     "angular-mocks": "latest",
     "angular-resource": "latest",
-    "angular-route": "latest"
+    "angular-route": "latest",
+    "angular-truncate": "latest"
   }
 }
