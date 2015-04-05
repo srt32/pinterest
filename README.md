@@ -22,11 +22,11 @@ is [purposefully excluded from the project's `Gemfile`][exclude].
 [foreman]: https://github.com/ddollar/foreman
 [exclude]: https://github.com/ddollar/foreman/pull/437#issuecomment-41110407
 
-## Guidelines
+Run the test suite with the following commands:
 
-Use the following guides for getting things done, programming well, and
-programming in style.
+`rake` (back end unit tests and integration tests)
 
-* [Protocol](http://github.com/thoughtbot/guides/blob/master/protocol)
-* [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
-* [Style](http://github.com/thoughtbot/guides/blob/master/style)
+`rake teaspoon` (front end tests)
+
+The app is hosted on Heroku at
+[https://pinterest-globality.herokuapp.com](https://pinterest-globality.herokuapp.com)
