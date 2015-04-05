@@ -6,3 +6,32 @@
 @import "neat";
 @import "base/base";
 @import "refills/flashes";
+
+.page-title {
+  font-size: 4em;
+}
+
+.products {
+  .title {
+    font-size: 3em;
+  }
+
+  .author {
+    font-size: 1.5em;
+    padding-left: 1em;
+  }
+
+  .blurb {
+    font-size: 1em;
+  }
+
+  li {
+    background-color: #f00;
+    float: left;
+    height: 36em;
+    margin-bottom: 4em;
+    margin-left: 4em;
+    padding: 2em;
+    width: 17em;
+  }
+}
