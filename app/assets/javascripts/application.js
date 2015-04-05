@@ -25,7 +25,7 @@ pinterest = angular.module("pinterest", [
   "controllers"
 ]);
 
-// TODO: move me to router
+// TODO: extract
 pinterest.config(["$routeProvider", function($routeProvider) {
   $routeProvider.when("/", {
     templateUrl: "index.html",
@@ -35,7 +35,7 @@ pinterest.config(["$routeProvider", function($routeProvider) {
 
 controllers = angular.module("controllers", []);
 
-// TODO: move me to another file
+// TODO: extract
 controllers.controller("ProductsController", [
   "$resource",
   "$scope",
@@ -45,5 +45,38 @@ controllers.controller("ProductsController", [
     Product.query({}, function(products) {
       $scope.products = products;
     });
+
+    $scope.page = 1;
+
+    $scope.loadNewProducts = function() {
+      Product = $resource("/v1/products"); // TODO: extract
+
+      Product.query({page: $scope.page}, function(products) {
+        $scope.products = $scope.products.concat(products);
+        $scope.page += 1;
+      });
+    };
   }
 ]);
+
+angular.module("pinterest").directive("infiniteScroll", [
+  "$document",
+  "$window",
+  function($document, $window) {
+    return {
+      restrict: "A",
+      link: link
+    };
+
+    function link($scope, element, attr) {
+      $document.bind("scroll", function() {
+        var win = $(window);
+        var doc = $(document);
+        var currentDocHeight = win.scrollTop() + win.height();
+
+        if (currentDocHeight >= doc.height()) {
+          $scope.$apply(attr.infiniteScroll);
+        }
+      });
+    }
+}]);

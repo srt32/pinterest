@@ -24,10 +24,30 @@ describe("ProductsController", function() {
   describe("scope.products", function() {
     it("fetches the products from the server", function() {
       $httpBackend.expectGET("/v1/products").respond(products);
-      $controller("ProductsController", { $scope: $scope, $resource: $resource });
+      $controller(
+        "ProductsController",
+        { $scope: $scope, $resource: $resource }
+      );
       $httpBackend.flush();
 
       expect($scope.products.length).toEqual(3);
+    });
+  });
+
+  describe("scope.loadNewProducts", function() {
+    it("fetches the next page of products", function() {
+      $httpBackend.expectGET("/v1/products").respond(products);
+      $httpBackend.expectGET("/v1/products?page=1").respond(products);
+      $controller(
+        "ProductsController",
+        { $scope: $scope, $resource: $resource }
+      );
+
+      $scope.loadNewProducts();
+      $httpBackend.flush();
+
+      expect($scope.products.length).toEqual(6);
+      expect($scope.page).toEqual(2);
     });
   });
 });
