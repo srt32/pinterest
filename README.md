@@ -28,5 +28,7 @@ Run the test suite with the following commands:
 
 `rake teaspoon` (front end tests)
 
+There is a seed file that can be run with `rake db:seed`
+
 The app is hosted on Heroku at
 [https://pinterest-globality.herokuapp.com](https://pinterest-globality.herokuapp.com)
